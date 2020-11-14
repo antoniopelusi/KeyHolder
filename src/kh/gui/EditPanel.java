@@ -126,55 +126,61 @@ public class EditPanel extends JFrame implements ActionListener, ItemListener
         b1.setBounds(552, 60, 100, 35);
         b1.setOpaque(true);
 		b1.setBackground(new Color(245, 245, 245));
+		b1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		b1.addActionListener(this);
 		
 		b2 = new JButton("Delete");
 	    b2.setBounds(552, 120, 100, 35);
 	    b2.setOpaque(true);
 	    b2.setBackground(new Color(245, 245, 245));
+	    b2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	    b2.addActionListener(this);
         
 	    b3 = new JButton("Edit");
 	    b3.setBounds(552, 180, 100, 35);
 	    b3.setOpaque(true);
 	    b3.setBackground(new Color(245, 245, 245));
+	    b3.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	    b3.addActionListener(this);
 		
 		b5 = new JButton("↑");
-		b5.setBounds(582, 255, 40, 40);
+		b5.setBounds(583, 255, 40, 40);
 		b5.setOpaque(true);
 		b5.setBackground(new Color(245, 245, 245));
+		b5.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		b5.addActionListener(this);
 		
 		b6 = new JButton("↓");
-		b6.setBounds(582, 310, 40, 40);
+		b6.setBounds(583, 311, 40, 40);
 		b6.setOpaque(true);
 		b6.setBackground(new Color(245, 245, 245));
+		b6.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		b6.addActionListener(this);
 		
 		b4 = new JButton("Save");
         b4.setBounds(552, 390, 100, 35);
         b4.setOpaque(true);
 		b4.setBackground(new Color(245, 245, 245));
+		b4.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		b4.addActionListener(this);
 		
 	    JSeparator s = new JSeparator();
-		s.setBackground(Color.lightGray);
-		s.setForeground(Color.lightGray);
+		s.setForeground(Color.LIGHT_GRAY);
         s.setOrientation(JSeparator.HORIZONTAL); 
         s.setBounds(0, 452, 1000, 1);
         
         l.setBounds(20, 465, 500, 20);
-		l.setFont(new Font(null, Font.PLAIN, 12));
+		l.setFont(new Font(null, Font.BOLD, 12));
 		
-		c.setBounds(385, 465, 150, 20);
+		c.setBounds(375, 465, 130, 20);
 		c.setOpaque(false);
 		c.addItemListener(this);
 		
 		pb.setValue(0);
         pb.setStringPainted(true);
-        pb.setBackground(null);
-        pb.setBounds(542, 467, 120, 18);
+        pb.setForeground(new Color(204, 136, 0));
+		pb.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        pb.setBounds(543, 467, 120, 18);
         
         add(titlebar);
         add(minimize);

@@ -14,6 +14,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 import javax.swing.Action;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
@@ -30,7 +31,7 @@ public class StartPanel extends JPanel implements ActionListener
 {
 	private static final long serialVersionUID = 1L;
 	
-	private JLabel l1, l2;
+	private JLabel l1, l2, l3;
 	private JButton b1, b2, minimize, close;
 	private JPanel titlebar;
 	
@@ -64,37 +65,42 @@ public class StartPanel extends JPanel implements ActionListener
 		close.setBackground(new Color(238, 238, 238));
 		close.addActionListener(this);
 		
-		l1 = new JLabel("KeyHolder 🔒");
+		l1 = new JLabel("KeyHolder", JLabel.CENTER);
 		l1.setFont(new Font(null, Font.BOLD, 30));
-		l1.setHorizontalAlignment(JLabel.CENTER);
-		l1.setBounds(150, 75, 200, 50);
+		l1.setBounds(130, 80, 200, 50);
 		
-		
-		
+		l2 = new JLabel("🔒", JLabel.CENTER);
+		l2.setFont(new Font(null, Font.BOLD, 30));
+		l2.setForeground(new Color(204, 136, 0));
+		l2.setBounds(230, 80, 200, 50);
+
 		b1 = new JButton("Load database");
-		b1.setBounds(100, 165, 130, 35);
+		b1.setBounds(102, 175, 130, 30);
 		b1.setOpaque(true);
-		b1.setBackground(new Color(238, 238, 238));
+		b1.setBackground(new Color(235, 235, 235));
+	    b1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		b1.addActionListener(this);
 		
 		b2 = new JButton("Create database");
-		b2.setBounds(267, 165, 130, 35);
+		b2.setBounds(266, 175, 130, 30);
 		b2.setOpaque(true);
-		b2.setBackground(new Color(238, 238, 238));
+		b2.setBackground(new Color(235, 235, 235));
+	    b2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		b2.addActionListener(this);
-
-		l2 = new JLabel("or drop file here");
-		l2.setFont(new Font(null, Font.BOLD, 13));
-		l2.setHorizontalAlignment(JLabel.CENTER);
-		l2.setBounds(150, 205, 200, 50);
+		
+		l3 = new JLabel("or drop file here", JLabel.CENTER);
+		l3.setFont(new Font(null, Font.BOLD, 13));
+		l3.setForeground(new Color(50, 50, 50));
+		l3.setBounds(150, 215, 200, 50);
 		
 		add(titlebar);
 		add(minimize);
 		add(close);
 		add(l1);
+		add(l2);
 		add(b1);
 		add(b2);
-		add(l2);
+		add(l3);
 	}
 	
 	public static void loadDatabase() throws Exception
@@ -195,7 +201,6 @@ public class StartPanel extends JPanel implements ActionListener
 					{
 						JOptionPane.showConfirmDialog(null, "Wrong password","⚠", JOptionPane.OK_CANCEL_OPTION);
 						System.out.println("Loading failed, wrong password");
-						kh.logic.Write.WriteFile(ioFile);
 						kh.logic.Crypt.encrypt(key, ioFile, ioFile);
 						return;
 					}
@@ -257,13 +262,12 @@ public class StartPanel extends JPanel implements ActionListener
 					FileInputStream fis = null;
 					fis = new FileInputStream(db);
 					fis.read(hashedpw, 0, 16);
-					fis.close();		
+					fis.close();
 					kh.logic.Crypt.encrypt(key, ioFile, ioFile);
 				}
 				else
 				{
 					JOptionPane.showConfirmDialog(null, "Unable to load a folder",  "⚠", JOptionPane.PLAIN_MESSAGE);
-					kh.logic.Write.WriteFile(ioFile);
 					kh.logic.Crypt.encrypt(key, ioFile, ioFile);
 					return;
 				}
@@ -271,7 +275,6 @@ public class StartPanel extends JPanel implements ActionListener
 			catch (IOException e2)
 			{
 				e2.printStackTrace();
-				kh.logic.Write.WriteFile(ioFile);
 				kh.logic.Crypt.encrypt(key, ioFile, ioFile);
 			}
 			
@@ -316,7 +319,6 @@ public class StartPanel extends JPanel implements ActionListener
 				{
 					JOptionPane.showConfirmDialog(null, "Wrong password","⚠", JOptionPane.OK_CANCEL_OPTION);
 					System.out.println("Loading failed, wrong password");
-					kh.logic.Write.WriteFile(ioFile);
 					kh.logic.Crypt.encrypt(key, ioFile, ioFile);
 					return;
 				}
@@ -324,7 +326,6 @@ public class StartPanel extends JPanel implements ActionListener
 			catch (NoSuchAlgorithmException | IOException | InvalidKeySpecException e1)
 			{
 				e1.printStackTrace();
-				kh.logic.Write.WriteFile(ioFile);
 				kh.logic.Crypt.encrypt(key, ioFile, ioFile);
 				return;
 			}
