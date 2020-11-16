@@ -19,5 +19,5 @@ Need Java virtual machine to start, available [**here**](https://www.java.com/en
 ## `Screenshot`
 Swing GUI
 
-![](loginPanel.png)
+![](startPanel.png)
 ![](editPanel.png)
