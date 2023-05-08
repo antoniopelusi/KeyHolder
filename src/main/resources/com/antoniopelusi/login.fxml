@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane prefHeight="200.0" prefWidth="400.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antoniopelusi.LoginController">
+   <bottom>
+      <Pane fx:id="pane" prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="isDatabaseCreated" alignment="CENTER" contentDisplay="CENTER" layoutX="50.0" layoutY="-1.0" prefHeight="30.0" prefWidth="300.0" textAlignment="CENTER">
+               <font>
+                  <Font size="11.0" />
+               </font></Label>
+         </children></Pane>
+   </bottom>
+   <left>
+      <Button fx:id="createDatabase" alignment="CENTER" onAction="#createDatabase" prefWidth="70.0" text="Create" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="80.0" />
+         </BorderPane.margin>
+      </Button>
+   </left>
+   <right>
+        <Button fx:id="loadDatabase" alignment="CENTER" onAction="#loadDatabase" prefWidth="70.0" text="Load" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="80.0" />
+         </BorderPane.margin>
+      </Button>
+   </right>
+   <center>
+      <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+         <image>
+            <Image url="@lock.png" />
+         </image>
+      </ImageView>
+   </center>
+   <top>
+      <BorderPane prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <Label alignment="CENTER" contentDisplay="CENTER" text="KeyHolder" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Lato Black" size="32.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin></Label>
+         </center>
+         <top>
+            <Pane prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="focus" defaultButton="true" layoutX="200.0" layoutY="8.0" maxHeight="0.0" maxWidth="0.0" minWidth="0.0" mnemonicParsing="false" opacity="0.0" prefWidth="0.0" />
+               </children>
+            </Pane>
+         </top>
+      </BorderPane>
+   </top>
+</BorderPane>
+

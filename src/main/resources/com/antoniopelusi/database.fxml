@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.antoniopelusi.DatabaseController">
+   <bottom>
+      <HBox alignment="TOP_RIGHT" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="accountCounter">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@lock.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <CheckBox fx:id="showPasswordCheckbox" mnemonicParsing="false" onAction="#showPasswords" text="Show passwords">
+               <font>
+                  <Font size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="30.0" />
+               </padding>
+            </CheckBox>
+            <ProgressBar fx:id="progressBar" prefHeight="10.0" prefWidth="150.0" progress="0.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="15.0" />
+               </HBox.margin>
+            </ProgressBar>
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Account">
+            <items>
+              <MenuItem fx:id="addAccount" mnemonicParsing="false" onAction="#addAccount" text="Add a new account" />
+                  <MenuItem fx:id="editAccount" mnemonicParsing="false" onAction="#editAccount" text="Edit selected account" />
+                  <MenuItem fx:id="removeAccount" mnemonicParsing="false" onAction="#removeAccount" text="Remove selected account" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#about" text="About" />
+                  <MenuItem fx:id="locateDatabase" mnemonicParsing="false" onAction="#locateDatabase" text="Locate database" />
+                  <MenuItem fx:id="shortcuts" mnemonicParsing="false" onAction="#shortcuts" text="Shortcuts" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <TableView fx:id="table" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="nameColumn" editable="false" prefWidth="75.0" sortable="true" text="Name" />
+          <TableColumn fx:id="emailColumn" editable="false" prefWidth="75.0" sortable="false" text="Username" />
+            <TableColumn fx:id="passwordColumn" editable="false" prefWidth="75.0" sortable="false" text="Password" />
+        </columns>
+         <BorderPane.margin>
+            <Insets left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </center>
+</BorderPane>
